@@ -1,14 +1,54 @@
-// Composition rules.
-.container {
+body {
   background-color: $gray;
-  width: 960px;
-};
+  font-size: $font-size;
+}
 
-.game-title {
+.announcements {
+  background-color: $test-red;
+  margin-top: $font-size;
+}
+
+.container-fluid {
+  max-width: 860px;
+  min-width: 640px;
+}
+
+.game-grid {
   background-color: $white;
+  font-size: $font-size-game;
+  height: $height-grid-element;
   text-align: center;
 }
 
+.game-grid-center {
+  border: $border-width solid $black;
+}
+
+.game-grid-row {
+  border-bottom: $border-width solid $black;
+  border-top: $border-width solid $black;
+}
+
+.game-grid-column {
+  border-left: $border-width solid $black;
+  border-right: $border-width solid $black;
+}
+
+.game-title {
+  background-color: $gray;
+  font-size: $font-size-title;
+  text-align: center;
+}
+
+.player-actions {
+  background-color: $test-red;
+}
+
+.player-name {
+  background-color: $test-green;
+}
+
 .player-token {
-  background-color: #ffeeee;
+  background-color: $test-blue;
+  margin-bottom: $font-size;
 }

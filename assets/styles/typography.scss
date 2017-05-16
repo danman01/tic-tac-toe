@@ -1,1 +1,7 @@
-// Typography rules
+$font-size:       18px;   // foundation font size
+$font-size-title: 1.5 * $font-size;
+$font-size-game:  3 * $font-size;
+
+$border-width:  $font-size / 9;
+
+$height-grid-element: 5 * $font-size;
