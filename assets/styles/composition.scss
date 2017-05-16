@@ -1,0 +1,14 @@
+// Composition rules.
+.container {
+  background-color: $gray;
+  width: 960px;
+};
+
+.game-title {
+  background-color: $white;
+  text-align: center;
+}
+
+.player-token {
+  background-color: #ffeeee;
+}

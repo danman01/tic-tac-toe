@@ -1,2 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import './colors';
+@import './typography';
+@import './composition';
+// WARNING: breakpoint mixins have to occur last in the constructed CSS file.
+// test whether this can be done last within composition file.
