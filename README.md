@@ -28,7 +28,8 @@ Contents:
           - never more than 4 colors (including black) in a view.
     - composition: "Composition", in the classic sense from printing, are the stylistic
         rules governing the placement & appearance of pages, blocks of text, headers,
-        footers, etc. The rules are defined semantically & deployed against the relevant classes/tags here. Composition rolls up color & typography together.
+        footers, etc. The rules are defined semantically & deployed against the
+        relevant classes/tags here. Composition rolls up color & typography together.
 
   2.2 Bootstrap
   Grid layout & responsive breakpoints driven by bootstrap.
@@ -82,7 +83,11 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
       grunt deploy constructed the site at the wrong URL.
 
   3.6 Layout the UI
-  • ui-roughout branch.
+  • ui-roughout branch:
+    - Laid out the principle elements on the display.
+    - Minimal responsive design within a max and min screen width.
+
+
 
 4. Unsolved problems for future releases
 None to date.
