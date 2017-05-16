@@ -93,6 +93,9 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   3.7 Init the UI
   • Set the HTML to the landing-state for the page, where the first user is asked
       to log-in or register. Re-acquainting myself with manipulating the DOM.
+  • Moved the log-in/registration forms to a forms.js file as defined HTML strings
+      (with lots of escapes). This allowed the index.js to stuff them into the document
+      when ...<-- CONTINUE FROM HERE.
 
 
 

@@ -3,8 +3,11 @@ body {
   font-size: $font-size;
 }
 
+input {
+  color: $red;
+}
+
 .announcements {
-  background-color: $test-red;
   margin-top: $font-size;
 }
 
@@ -40,15 +43,6 @@ body {
   text-align: center;
 }
 
-.player-actions {
-  background-color: $test-red;
-}
-
-.player-name {
-  background-color: $test-green;
-}
-
 .player-token {
-  background-color: $test-blue;
   margin-bottom: $font-size;
 }

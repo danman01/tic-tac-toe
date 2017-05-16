@@ -1,7 +1,8 @@
 'use strict'
 
-const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
+const forms = require('./forms')
+const setAPIOrigin = require('../../lib/set-api-origin')
 
 // Wait for document to be ready
 $(() => {
@@ -9,6 +10,7 @@ $(() => {
 
   // Hide the game grid and player regions.
   $('.game-grid, #playaer1, #player2').hide()
+  $('#player1').html(forms.strLogIn)
 })
 
 // use require with a reference to bundle the file and use it in this file
