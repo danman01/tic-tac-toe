@@ -86,8 +86,15 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   • ui-roughout branch:
     - Laid out the principle elements on the display.
     - Minimal responsive design within a max and min screen width.
+    - Re-acquainting myself with SCSS/SASS. I feel there are some simplifications
+        that can be made to the SCSS files, but am deferring that kind of code
+        optimization to later (if ever).
+
+  3.7 Init the UI
+  • Set the HTML to the landing-state for the page, where the first user is asked
+      to log-in or register. Re-acquainting myself with manipulating the DOM.
 
 
 
 4. Unsolved problems for future releases
-None to date.
+  Fill in from my Wunderlist open issues later.
