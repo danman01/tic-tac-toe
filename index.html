@@ -24,11 +24,55 @@
     </div>
 
     <!-- Player 1 identification & control -->
+    <!-- sign-in or register row -->
+    <div class="row player1">
+
+      <!-- sign-in form -->
+      <div class='player1 col-xs-offset-1 col-xs-3'>
+        <form id="sign-in">
+          <fieldset>
+            <p>Sign in:</p>
+
+            <input type='text'
+            name='credentials[email]' placeholder='username'>
+            <br>
+
+            <input type='password'
+            name='credentials[password]' placeholder='password'>
+            <br>
+
+            <input type="submit" name="submit" value="Log in">
+          </fieldset>
+        </form>
+      </div>
+
+      <!-- register form -->
+      <div class='player1 col-xs-3'>
+        <form id="sign-up">
+          <fieldset>
+            <p>…or register:<p>
+
+            <input type='text'
+            name='credentials[email]' placeholder='username'>
+
+            <input type='password'
+            name='credentials[password]' placeholder='password'>
+
+            <input type='password'
+            name='credentials[password_confirmation]' placeholder='confirm password'>
+
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
     <div class="row">
       <div id="player1-token" class="player-token col-xs-offset-1 col-xs-2">
       </div>
 
       <div id="player1-name" class="player-name col-xs-6">
+
       </div>
 
       <div id="player1-actions" class="player-actions col-xs-2">
@@ -36,7 +80,7 @@
     </div>
 
     <!-- Player 2 identification & control -->
-    <div class="row">
+    <div class="row player2">
       <div id="player2-token" class="player-token col-xs-offset-1 col-xs-2">
       </div>
 
@@ -49,9 +93,9 @@
 
     <!-- Game board -->
     <div class="row">
-      <div class=" game-grid col-xs-2 col-xs-offset-3"></div>
-      <div class=" game-grid col-xs-2 game-grid-column"></div>
-      <div class=" game-grid col-xs-2"></div>
+      <div class="game-grid col-xs-2 col-xs-offset-3"></div>
+      <div class="game-grid col-xs-2 game-grid-column"></div>
+      <div class="game-grid col-xs-2"></div>
     </div>
 
     <div class="row">
