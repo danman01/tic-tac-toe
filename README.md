@@ -101,6 +101,7 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
     - chmod +x required on each script.
     - Not including scripts in the commit as they may have exposed credentials,
         a security risk.
+  • cribbed much code from the auth API training module lab.
 
 
 
