@@ -95,7 +95,12 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
       to log-in or register. Re-acquainting myself with manipulating the DOM.
   • Moved the log-in/registration forms to a forms.js file as defined HTML strings
       (with lots of escapes). This allowed the index.js to stuff them into the document
-      when ...<-- CONTINUE FROM HERE.
+      when needed to log-in/register each player.
+  • curl scripts added to test the API. Got them working against the dev server.
+    - Had to switch to HTTP from HTTPS. Boo — dev server should be secure!
+    - chmod +x required on each script.
+    - Not including scripts in the commit as they may have exposed credentials,
+        a security risk.
 
 
 
