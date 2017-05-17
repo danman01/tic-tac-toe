@@ -1,6 +1,8 @@
 'use strict'
 
-const api = require('./api')
+// const api = require('./api')
+const p = require('../player')
+const arrPlayers = p.arrPlayers
 
 const signInSuccess = function (objResponse) {
   // API returns an object of form
@@ -11,9 +13,11 @@ const signInSuccess = function (objResponse) {
   //     token: "string"
   //   }
   // }
-  api.objUserAuthNToken.strId = objResponse.user.id
-  api.objUserAuthNToken.strAuthNToken = objResponse.user.token
-  console.log('objUserAuthNToken: ', api.objUserAuthNToken)
+
+  // Save player credentials in whichever player isn't logged in.
+  const intPlayerIndex = arrPlayers[0].fnIsLoggedIn() ? 1 : 0
+  arrPlayers[intPlayerIndex].fnLogIn(objResponse.user.email, objResponse.user.id, objResponse.user.token)
+
 }
 
 const signInFailure = function (objResponse) {

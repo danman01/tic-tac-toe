@@ -105,6 +105,7 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   • Eventually dug deeper into the setAPIOrigin code to understand that I would
       receive the correct API address for use in API calls... and did not have to
       set up my own isProduction switch between dev and production environments.
+  • Used a separate file to hold descriptions of Player class & the Players array.
 
 
 

@@ -1,12 +1,6 @@
 'use strict'
 
 const config = require('../config')
-const objUserAuthNToken = {
-  strId: '',
-  strAuthNToken: ''
-}
-
-// const store = require('../store')
 
 // Invokes sign-up API
 // const signUp = function (objSignUp) {
@@ -70,7 +64,6 @@ const signIn = function (objSignIn) {
 // }
 
 module.exports = {
-  objUserAuthNToken,
   // changePassword,
   signIn
   // signOut,
