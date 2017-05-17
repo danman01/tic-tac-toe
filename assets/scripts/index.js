@@ -2,20 +2,20 @@
 
 const authEvents = require('./auth/events.js')
 const config = require('./config')
-const registerHTML = require('../html/register-html')
-const signInHTML = require('../html/sign-in-html')
+// const registerHTML = require('../html/register-html')
+// const signInHTML = require('../html/sign-in-html')
 const setAPIOrigin = require('../../lib/set-api-origin')
 
 // Wait for document to be ready
 $(() => {
   setAPIOrigin(location, config)
-  console.log(config.apiOrigin)
 
   // Load player1's log-in/registration forms into UI
-  $('#player1').html(signInHTML.strSignIn + registerHTML.strRegister)
-
-  // Ready to receive events
-  authEvents.addHandlers()
+  // Wait for the load to complete before continuing (synchronous, but
+  // needed to be sure form is ready to fire event).
+  $('#player1').load('assets/html/sign-in-register.html', function () {
+    authEvents.addHandlers()
+  })
 })
 
 // use require with a reference to bundle the file and use it in this file

@@ -95,7 +95,8 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
       to log-in or register. Re-acquainting myself with manipulating the DOM.
   • Moved the log-in/registration forms to a forms.js file as defined HTML strings
       (with lots of escapes). This allowed the index.js to stuff them into the document
-      when needed to log-in/register each player.
+      when needed to log-in/register each player. Later I discovered the jQuery
+      .load function to clean this up.
   • curl scripts added to test the API. Got them working against the dev server.
     - Had to switch to HTTP from HTTPS. Boo — dev server should be secure!
     - chmod +x required on each script.
@@ -106,6 +107,8 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
       receive the correct API address for use in API calls... and did not have to
       set up my own isProduction switch between dev and production environments.
   • Used a separate file to hold descriptions of Player class & the Players array.
+      Placed this in an objects folder, as there will be other object/class
+      definitions.
 
 
 
