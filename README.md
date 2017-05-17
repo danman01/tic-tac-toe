@@ -102,6 +102,9 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
     - Not including scripts in the commit as they may have exposed credentials,
         a security risk.
   • cribbed much code from the auth API training module lab.
+  • Eventually dug deeper into the setAPIOrigin code to understand that I would
+      receive the correct API address for use in API calls... and did not have to
+      set up my own isProduction switch between dev and production environments.
 
 
 

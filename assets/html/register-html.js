@@ -1,4 +1,4 @@
-// Log-in HTML
+// Register HTML
 const strRegister = "<div class='player1 col-xs-3'> \
     <form id=\"sign-up\"> \
       <fieldset> \

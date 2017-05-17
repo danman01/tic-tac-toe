@@ -5,7 +5,6 @@ const objUserAuthNToken = {
   strId: '',
   strAuthNToken: ''
 }
-const serverAddress = config.apiOrigins.development
 
 // const store = require('../store')
 
@@ -39,7 +38,7 @@ const signIn = function (objSignIn) {
   //   }
   // }
   return $.ajax({
-    url: serverAddress + '/sign-in',
+    url: config.apiOrigin + '/sign-in',
     method: 'POST',
     data: objSignIn
   })

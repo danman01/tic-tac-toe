@@ -3,7 +3,6 @@
 const api = require('./api')
 
 const signInSuccess = function (objResponse) {
-  console.log('Log in success. Return:', objResponse)
   // API returns an object of form
   // {
   //   user: {
