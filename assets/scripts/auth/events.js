@@ -28,10 +28,9 @@ const ui = require('./ui')
 const onSignIn = function (event) {
   event.preventDefault()
   const objSignIn = getFormFields(event.target)
-  console.log(objSignIn)
-//   api.signIn(objSignIn)
-//     .then(ui.signInSuccess)
-//     .catch(ui.signInFailure)
+  api.signIn(objSignIn)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 //

@@ -2,6 +2,7 @@
 
 // const api = require('./api')
 const arrPlayers = require('../objects/player')
+const authEvents = require('./events')
 
 const signInSuccess = function (objResponse) {
   // API returns an object of form
@@ -13,10 +14,30 @@ const signInSuccess = function (objResponse) {
   //   }
   // }
 
-  // Save player credentials in whichever player isn't logged in.
+  // Save player credentials in first player that isn't logged in.
   const intPlayerIndex = !arrPlayers[0].fnIsLoggedIn() ? 0 : 1
   arrPlayers[intPlayerIndex].fnIsLoggedIn(true, objResponse.user.email, objResponse.user.id, objResponse.user.token)
-  console.log(arrPlayers)
+
+  // Load player space. Let an event handler fill in the spaces.
+  // ...form the player ID dynamically (for clarity)
+  const idPlayer = '#player' + intPlayerIndex
+  // load the space...
+  $(idPlayer).load('assets/html/player.html', function () {
+    // when the space is loaded, populate the name field.
+    $(idPlayer).children('.player-name').children('p').load(arrPlayers[intPlayerIndex].name)
+  })
+
+  // If both players are logged in, load game grid.
+  // Else load 2nd player log-in/registration
+  // if (arrPlayers[0].fnIsLoggedIn() && arrPlayers[1].fnIsLoggedIn()) {
+  //   // $('#grid').load('assets/html/game-grid.html', function () {
+  //     // stuff to start play
+  //   // })
+  // } else {
+  //   $('#player1').load('assets/html/sign-in-register.html', function () {
+  //     authEvents.addHandlers()
+  //   })
+  // }
 }
 
 const signInFailure = function (objResponse) {

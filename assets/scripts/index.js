@@ -1,6 +1,6 @@
 'use strict'
 
-const authEvents = require('./auth/events.js')
+const authEvents = require('./auth/events')
 const config = require('./config')
 // const registerHTML = require('../html/register-html')
 // const signInHTML = require('../html/sign-in-html')
@@ -13,7 +13,7 @@ $(() => {
   // Load player1's log-in/registration forms into UI
   // Wait for the load to complete before continuing (synchronous, but
   // needed to be sure form is ready to fire event).
-  $('#player1').load('assets/html/sign-in-register.html', function () {
+  $('#player0').load('assets/html/sign-in-register.html', function () {
     authEvents.addHandlers()
   })
 })
