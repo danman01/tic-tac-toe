@@ -2,7 +2,7 @@
 
 const authEvents = require('./auth/events.js')
 const config = require('./config')
-const forms = require('./forms')
+const signInHTML = require('../html/sign-in-html')
 const setAPIOrigin = require('../../lib/set-api-origin')
 
 // Wait for document to be ready
@@ -13,7 +13,7 @@ $(() => {
   $('.game-grid, #playaer1, #player2').hide()
 
   // Load player1's log-in/registration forms into UI
-  $('#player1').html(forms.strLogIn)
+  $('#player1').html(signInHTML.strSignIn)
 
   // Ready to receive events
   authEvents.addHandlers()
