@@ -1,31 +1,34 @@
 'use strict'
 
-// const config = require('../config')
-// const store = require('../store')
+const config = require('../config')
 const objUserAuthNToken = {
   strId: '',
   strAuthNToken: ''
 }
+const serverAddress = config.apiOrigins.development
+
+// const store = require('../store')
+
 // Invokes sign-up API
-const signUp = function (objSignUp) {
-  // per API documentation, objSignUp must be of form:
-  // {
-  //   credentials: {
-  //     email: "string",
-  //     password: "string",
-  //     password_confirmation: "string"
-  //   }
-  // }
-  console.log('api.signUp invoked with ', objSignUp)
-  return $.ajax({
-    // local test back end version
-    url: 'http://localhost:4741/sign-up',
-    // production version
-    // url: '$(config.apiOrigin}/sign-up/',
-    method: 'POST',
-    data: objSignUp
-  })
-}
+// const signUp = function (objSignUp) {
+//   // per API documentation, objSignUp must be of form:
+//   // {
+//   //   credentials: {
+//   //     email: "string",
+//   //     password: "string",
+//   //     password_confirmation: "string"
+//   //   }
+//   // }
+//   console.log('api.signUp invoked with ', objSignUp)
+//   return $.ajax({
+//     // local test back end version
+//     url: 'http://localhost:4741/sign-up',
+//     // production version
+//     // url: '$(config.apiOrigin}/sign-up/',
+//     method: 'POST',
+//     data: objSignUp
+//   })
+// }
 
 const signIn = function (objSignIn) {
   // per API documentation, objSignIn must be of form:
@@ -35,45 +38,44 @@ const signIn = function (objSignIn) {
   //     password: "string"
   //   }
   // }
-  console.log('api.signIn invoked with ', objSignIn)
   return $.ajax({
-    url: 'http://localhost:4741/sign-in',
+    url: serverAddress + '/sign-in',
     method: 'POST',
     data: objSignIn
   })
 }
 
-const signOut = function () {
-  console.log('api.signOut invoked for ', objUserAuthNToken)
+// const signOut = function () {
+//   console.log('api.signOut invoked for ', objUserAuthNToken)
+//
+//   return $.ajax({
+//     url: 'http://localhost:4741/sign-out/' + objUserAuthNToken.strId,
+//     method: 'DELETE',
+//     headers: {
+//       'Authorization': 'Token token=' + objUserAuthNToken.strAuthNToken
+//     }
+//   })
+// }
 
-  return $.ajax({
-    url: 'http://localhost:4741/sign-out/' + objUserAuthNToken.strId,
-    method: 'DELETE',
-    headers: {
-      'Authorization': 'Token token=' + objUserAuthNToken.strAuthNToken
-    }
-  })
-}
-
-const changePassword = function (objPasswordsOldNew) {
-  console.log('api.changePassword invoked with data', objPasswordsOldNew)
-  console.log('and on objUserAuthNToken', objUserAuthNToken)
-  return $.ajax({
-    url: 'http://localhost:4741/change-password/' + objUserAuthNToken.strId,
-    method: 'PATCH',
-    headers: {
-      'Authorization': 'Token token=' + objUserAuthNToken.strAuthNToken
-    },
-    data: objPasswordsOldNew
-  })
-}
+// const changePassword = function (objPasswordsOldNew) {
+//   console.log('api.changePassword invoked with data', objPasswordsOldNew)
+//   console.log('and on objUserAuthNToken', objUserAuthNToken)
+//   return $.ajax({
+//     url: 'http://localhost:4741/change-password/' + objUserAuthNToken.strId,
+//     method: 'PATCH',
+//     headers: {
+//       'Authorization': 'Token token=' + objUserAuthNToken.strAuthNToken
+//     },
+//     data: objPasswordsOldNew
+//   })
+// }
 
 module.exports = {
   objUserAuthNToken,
-  changePassword,
-  signIn,
-  signOut,
-  signUp
+  // changePassword,
+  signIn
+  // signOut,
+  // signUp
 }
 
 // Can be used to debug random error handling
