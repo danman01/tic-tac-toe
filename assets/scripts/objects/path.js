@@ -15,10 +15,10 @@ const Path = function (arrIndices, arrSquareStates) {
   // 'xxx' indicates a win by 'x'
   // 'xo' indicates a mark by each player and an empty spot
   // 'xx' indicates 2 x's in the path and an empty spot
-  this.strState = ''
+  this._strState = ''
   // Update the state of the path. Assumes valid inputs!
   for (let i = 0; i < 3; i++) {
-    this.strState += arrSquareStates[this.arrPathIndices[i]]
+    this._strState += arrSquareStates[this.arrPathIndices[i]]
   }
 
   // .isTwoEqual = false if the path contains !=2 of the same marks.
@@ -33,21 +33,21 @@ const Path = function (arrIndices, arrSquareStates) {
     // Yes. Are they identical, representing a potential win-in-one-move?
     switch (this._strState) {
       // Are they both 'x'
-      case 'xx': {
+      case 'XX': {
         this.isTwoEqual = 'X'
         break
       }
       // …or 'o'
-      case 'oo': {
+      case 'OO': {
         this.isTwoEqual = 'O'
         break
       }
       // …or 2 mixed marks
-      case 'xo': {
+      case 'XO': {
         this.isTwoEqual = true
         break
       }
-      case 'ox': this.isTwoEqual = true
+      case 'OX': this.isTwoEqual = true
     }
   }
 
@@ -62,12 +62,12 @@ const Path = function (arrIndices, arrSquareStates) {
   if (this._strState.length === 3) {
     switch (this._strState) {
       // Are they all 'x'
-      case 'xxx': {
+      case 'XXX': {
         this.isFull = 'X'
         break
       }
       // …or 'o'
-      case 'ooo': {
+      case 'OOO': {
         this.isFull = 'O'
         break
       }
