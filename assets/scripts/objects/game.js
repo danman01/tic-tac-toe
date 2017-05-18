@@ -23,7 +23,8 @@ Game.prototype.addMove = function (intSquareIndex) {
   // Can this square be marked?
   if (this._arrSquareStates[intSquareIndex] !== '') {
     // No. Ignore move & post advice
-    $('.announcements').html('Sorry: you cannnot change an occupied square.')
+    $('.announcements').html('Sorry ' + this._strTurn +
+      ', you cannnot change an occupied square. Click an empty square .')
     // Return false
     return false
   }
@@ -49,7 +50,7 @@ Game.prototype.addMove = function (intSquareIndex) {
     // Tell server game is over
     // Highlight winning paths
     // Post announcement
-    $('.announcements').html(this._strTurn + 'won!')
+    $('.announcements').html(this._strTurn + ' won!')
 
     // Refresh player win total
     // Return true

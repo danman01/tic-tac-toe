@@ -20,13 +20,13 @@ const Path = function (arrIndices, arrSquareStates) {
   for (let i = 0; i < 3; i++) {
     this._strState += arrSquareStates[this.arrPathIndices[i]]
   }
+  this.intNrMarks = this._strState.length
 
   // .isTwoEqual = false if the path contains !=2 of the same marks.
   // ='x' or 'o' if the path contains 2 of the same marks AND an empty spot.
 
   // Assume there are not two equal marks to start...
   this.isTwoEqual = false
-  this.intNrMarks = this._strState.length
 
   // Are there just two marks?
   if (this.intNrMarks === 2) {

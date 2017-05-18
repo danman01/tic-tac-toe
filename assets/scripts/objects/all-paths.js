@@ -32,11 +32,11 @@ const AllPaths = function (arrSquareStates) {
     } else {
       // if this path has 2 marks, both the same, and a hole,
       // it could be won
-      if (this.arrAllPaths[i].isTwoEqual) {
+      if (this._arrAllPaths[i].isTwoEqual) {
         this.isDraw = false
       } else {
         // if just 1 or no marks, game could be won
-        if (this.arrAllPaths[i].intNrMarks <= 1) {
+        if (this._arrAllPaths[i].intNrMarks <= 1) {
           this.isDraw = false
         }
       }
