@@ -26,9 +26,10 @@ const Path = function (arrIndices, arrSquareStates) {
 
   // Assume there are not two equal marks to start...
   this.isTwoEqual = false
+  this.intNrMarks = this._strState.length
 
   // Are there just two marks?
-  if (this._strState.length === 2) {
+  if (this.intNrMarks === 2) {
     // Yes. Are they identical, representing a potential win-in-one-move?
     switch (this._strState) {
       // Are they both 'x'
@@ -51,7 +52,7 @@ const Path = function (arrIndices, arrSquareStates) {
   this.isFull = false
 
   // Are there exactly 3 marks; i.e. path is full?
-  if (this._strState.length === 3) {
+  if (this.intNrMarks === 3) {
     switch (this._strState) {
       // Are they all 'x'
       case 'XXX': {
