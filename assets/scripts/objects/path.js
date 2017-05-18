@@ -23,7 +23,6 @@ const Path = function (arrIndices, arrSquareStates) {
 
   // .isTwoEqual = false if the path contains !=2 of the same marks.
   // ='x' or 'o' if the path contains 2 of the same marks AND an empty spot.
-  // = true means 1 mark of x and one mark of o.
 
   // Assume there are not two equal marks to start...
   this.isTwoEqual = false
@@ -40,14 +39,7 @@ const Path = function (arrIndices, arrSquareStates) {
       // …or 'o'
       case 'OO': {
         this.isTwoEqual = 'O'
-        break
       }
-      // …or 2 mixed marks
-      case 'XO': {
-        this.isTwoEqual = true
-        break
-      }
-      case 'OX': this.isTwoEqual = true
     }
   }
 

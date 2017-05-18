@@ -26,14 +26,20 @@ const AllPaths = function (arrSquareStates) {
   this.isDraw = true
   // Check each path until a potential empty path that could be won is found.
   for (let i = 0; (i < 8 && this.isDraw); i++) {
-    // If any path does not contain at least 1 'x' and 1 'o'
-    // the game is not yet drawn.
-    // TwoEqual returns true if there are 2 different marks
-    // Full returns true if there are 3 mixed marks
-    if (this._arrAllPaths[i].TwoEqual !== true ||
-      this._arrAllPaths[i].Full !== true) {
-      // Found a path where it is possible to win
+    // If the game is won, it isn't a draw
+    if (this._arrAllPaths[i].isWin) {
       this.isDraw = false
+    } else {
+      // if this path has 2 marks, both the same, and a hole,
+      // it could be won
+      if (this.arrAllPaths[i].isTwoEqual) {
+        this.isDraw = false
+      } else {
+        // if just 1 or no marks, game could be won
+        if (this.arrAllPaths[i].intNrMarks <= 1) {
+          this.isDraw = false
+        }
+      }
     }
   }
 
