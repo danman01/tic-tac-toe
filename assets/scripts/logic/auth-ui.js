@@ -1,6 +1,7 @@
 'use strict'
 
-// const api = require('./api')
+// const api = require('./auth-api')
+const onGridClick = require('./game-ev')
 const Player = require('../objects/player')
 
 const signInSuccess = function (objResponse) {
@@ -20,11 +21,16 @@ const signInSuccess = function (objResponse) {
     objResponse.user.token)
   // Load player space on screen
   $('#player').load('assets/html/player.html', function () {
+    // When load completes, insert logged-in user name
     $('.player-name').html(objPlayer.name + ' logged in.')
   })
 
-  $('#grid').load('assets/html/game-grid.html')
-  $('.announcements').html('X plays first.')
+  $('#grid').load('assets/html/game-grid.html', function () {
+    // When grid has loaded, add delegated event handler to grid.
+    $('#grid').on('click', onGridClick)
+    // and tell players to start.
+    $('.announcements').html('X plays first.')
+  })
 }
 
 const signInFailure = function (objResponse) {

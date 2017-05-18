@@ -1,10 +1,8 @@
 'use strict'
 
+const api = require('./auth-api')
 const getFormFields = require('../../../lib/get-form-fields')
-
-// Grab the related API & UI methods for authentication.
-const api = require('./api')
-const ui = require('./ui')
+const ui = require('./auth-ui')
 
 // // event.target must be an HTML form
 // const onSignUp = function (event) {

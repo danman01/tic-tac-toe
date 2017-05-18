@@ -1,6 +1,6 @@
 'use strict'
 
-const authEvents = require('./auth/events')
+const authEvents = require('./logic/auth-ev')
 const config = require('./config')
 const setAPIOrigin = require('../../lib/set-api-origin')
 

@@ -4,38 +4,47 @@
 const Game = function () {
   // linear array of game state beginning r1c1, r1c2... r3c2, r3c3
   // expected values: 'x', 'o', ''
-  const _arrSquareStates = ['', '', '', '', '', '', '', '', '']
+  const this._arrSquareStates = ['', '', '', '', '', '', '', '', '']
+  const this._intMoveNr = 1
 }
 
-// Define private function used both for constructor and as a method.
-// Three forms of this function:
-// __setLogInStatus(true, strName, strId, strAuthNToken) to record a log-in &
-//    returns true.
-// __setLogInStatus(false) logs out the player; returns false
-// Player.prototype._setLogInStatus = function (bool, strName, strId, strAuthNToken) {
-//   if (arguments.length > 0 && bool) {
-//     // Accept proffered credentials
-//     this._isLoggedIn = true
-//     this.name = strName
-//     this.id = strId
-//     this.authNToken = strAuthNToken
-//   } else {
-//     // Log out a player by changing _isLoggedIn and erasing credentials.
-//     this._isLoggedIn = false
-//     this.name = ''
-//     this.id = ''
-//     this.authNToken = ''
-//   }
-//   return this._isLoggedIn
-// }
-//
-// // Three forms of fnIsLoggedIn method:
-// // fnIsLoggedIn() returns true if logged in, false if not.
-// // fnIsLoggedIn(true, strName, strId, strAuthNToken) to record a log-in &
-// //    returns true.
-// // fnIsLoggedIn(false) logs out the player; returns false
-// Player.prototype.fnIsLoggedIn = function (bool, strName, strId, strAuthNToken) {
-//   return this._setLogInStatus(bool, strName, strId, strAuthNToken)
-// }
+// AddMove attempts to add the next move at the specified
+// grid square.
+// Returns false if the grid square is occupied.
+// If grid square is free:
+// • updates the displayed game grid
+// • updates the announcements window
+// • updates the server after each move
+// • Returns null if game continues
+// • Returns true if game is over
+Game.prototype.AddMove = function (intSquareIndex) {
+  // Can this square be marked?
+  if (this._arrSquareStates[intSquareIndex] !== '') {
+    // No. Ignore move & post advice
+    // Return false
+    return false
+  }
+
+  // Mark the square; Odd moves are 'x'
+  const strMark = intMove % 2 ? 'o' : 'x'
+
+  // Instantiate an AllPaths to evaluate the state of play
+  const objAllPaths = new AllPaths(this._arrSquareStates)
+  // If game is a drawn
+    // Tell server game is over
+    // Post announcement
+    // Return true
+  // If game is won
+    // Tell server game is over
+    // Highlight winning paths
+    // Post announcement
+    // Refresh player win total
+    // Return true
+  // Else games continues
+    // Update server with move
+    // Increment move counter
+    // Post announcement: who plays next
+    // Return null
+}
 
 module.exports = Game
