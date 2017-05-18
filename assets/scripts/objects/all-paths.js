@@ -51,7 +51,7 @@ const AllPaths = function (arrSquareStates) {
     // Search for one or more winning paths
     // .Full returns false if a path is not full;
     //   otherwise returns the mark that won
-    switch (this._arrAllPaths[j].Full) {
+    switch (this._arrAllPaths[j].isFull) {
       case 'X': {   // x won
         _strWinningMark = 'X'
         _arrWinningPaths.push(this._arrAllPaths[j].arrPathIndices)
