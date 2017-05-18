@@ -24,6 +24,7 @@ const signInSuccess = function (objResponse) {
   })
 
   $('#grid').load('assets/html/game-grid.html')
+  $('.announcements').html('X plays first.')
 }
 
 const signInFailure = function (objResponse) {
