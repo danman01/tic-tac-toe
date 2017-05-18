@@ -18,15 +18,12 @@ const signInSuccess = function (objResponse) {
     objResponse.user.email,
     objResponse.user.id,
     objResponse.user.token)
-
   // Load player space on screen
-  // load the space...
-  // $('#player').load('assets/html/player.html', function () {
-  //   // when the space is loaded, populate the name field.
-  //   $('#player').children('.player-name').children('p').load(objPlayer.name)
-  // })
-  //
-  // $('#grid').load('assets/html/game-grid.html')
+  $('#player').load('assets/html/player.html', function () {
+    $('.player-name').html(objPlayer.name + ' logged in.')
+  })
+
+  $('#grid').load('assets/html/game-grid.html')
 }
 
 const signInFailure = function (objResponse) {
