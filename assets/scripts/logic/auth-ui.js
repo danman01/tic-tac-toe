@@ -1,7 +1,7 @@
 'use strict'
 
 // const api = require('./auth-api')
-const onGridClick = require('./game-ev')
+const objGameEvents = require('./game-ev')
 const Player = require('../objects/player')
 
 const signInSuccess = function (objResponse) {
@@ -26,10 +26,10 @@ const signInSuccess = function (objResponse) {
   })
 
   $('#grid').load('assets/html/game-grid.html', function () {
-    // When grid has loaded, add delegated event handler to grid.
-    $('#grid').on('click', onGridClick)
-    // and tell players to start.
-    $('.announcements').html('X plays first.')
+    // When grid has loaded add delegated event handler to grid.
+    $('#grid').on('click', objGameEvents.onGridClick)
+    // Instantiate a new game, which tells players to start.
+    objGameEvents.onNewGame()
   })
 }
 

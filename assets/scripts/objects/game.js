@@ -7,7 +7,7 @@ const Game = function () {
   // linear array of game state beginning r1c1, r1c2... r3c2, r3c3
   // expected values: 'x', 'o', ''
   this._arrSquareStates = ['', '', '', '', '', '', '', '', '']
-  this._intMoveNr = 1
+  this._strTurn = 'X'
 }
 
 // AddMove attempts to add the next move at the specified
@@ -19,7 +19,7 @@ const Game = function () {
 // • updates the server after each move
 // • Returns null if game continues
 // • Returns true if game is over (draw or win)
-Game.prototype.AddMove = function (intSquareIndex) {
+Game.prototype.addMove = function (intSquareIndex) {
   // Can this square be marked?
   if (this._arrSquareStates[intSquareIndex] !== '') {
     // No. Ignore move & post advice
@@ -29,10 +29,8 @@ Game.prototype.AddMove = function (intSquareIndex) {
   }
 
   // Mark the square in memory & on DOM
-  // Odd moves are 'x'
-  let strMark = this._intMove % 2 ? 'O' : 'X'
-  this._arrSquareStates[intSquareIndex] = strMark
-  $('#' + intSquareIndex).html(strMark)
+  this._arrSquareStates[intSquareIndex] = this._strTurn
+  $('#' + intSquareIndex).html(this._strTurn)
 
   // Instantiate an AllPaths to evaluate the state of play
   const objAllPaths = new AllPaths(this._arrSquareStates)
@@ -51,7 +49,7 @@ Game.prototype.AddMove = function (intSquareIndex) {
     // Tell server game is over
     // Highlight winning paths
     // Post announcement
-    $('.announcements').html(strMark + 'won!')
+    $('.announcements').html(this._strTurn + 'won!')
 
     // Refresh player win total
     // Return true
@@ -61,15 +59,12 @@ Game.prototype.AddMove = function (intSquareIndex) {
   // Else games continues
   // Update server with move
 
-  // Increment move counter
-  this._intMoveNr++
-
   // Post announcement: who plays next
-  let strMessage = this._intMove % 2 ? 'O' : 'X'
-  strMessage += '\'s turn…'
+  // Change turn
+  this._strTurn = this._strTurn === 'X' ? 'O' : 'X'
+  $('.announcements').html(this._strTurn + '\'s turn…')
   // ... and does he have to be careful?
   // ... or is he doomed?
-  $('.announcements').html(strMessage)
   // Return null
   return null
 }

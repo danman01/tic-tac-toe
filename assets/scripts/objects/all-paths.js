@@ -20,51 +20,58 @@ const AllPaths = function (arrSquareStates) {
     new Path([0, 4, 8], arrSquareStates),  // diagonals
     new Path([2, 4, 6], arrSquareStates)
   ]
-}
 
-// isDraw returns true if the game cannot be won; i.e.,
-// every path has at least 1 'x' and 1 'o'
-AllPaths.prototype.isDraw = function () {
+  // .isDraw = true if game is a draw; else false.
   // Check every path
-  for (let i = 0; i < 8; i++) {
+  this.isDraw = true
+  // Check each path until a potential empty path that could be won is found.
+  for (let i = 0; (i < 8 && this.isDraw); i++) {
     // If any path does not contain at least 1 'x' and 1 'o'
     // the game is not yet drawn.
     // TwoEqual returns true if there are 2 different marks
     // Full returns true if there are 3 mixed marks
     if (this._arrAllPaths[i].TwoEqual !== true ||
-      this.arrAllPaths[i].Full !== true) {
+      this._arrAllPaths[i].Full !== true) {
       // Found a path where it is possible to win
-      return false
+      this.isDraw = false
     }
-    return true
   }
-}
 
-// isWin returns either:
-// • false: no winner (yet)
-// * object containing:
-//    strWinningMark: 'x' or 'y' wins,
-//    arrWinningPaths: [ [0, 1, 2], [0, 4, 8]… ] arrays of 3 indices,
-//      each indicating a winning path
-AllPaths.prototype.isWin = function () {
-  const arrWinningPaths = []
-  let strWinningMark = ''
+  // .isWin set as follows:
+  // • false: no winner (yet)
+  // * object containing:
+  //    mark: 'x' or 'y' wins,
+  //    paths: [ [0, 1, 2], [0, 4, 8]… ] arrays of 3 indices,
+  //      each indicating a winning path
+  //  The .isWin object is useful in updating the UI.
+  const _arrWinningPaths = []
+  let _strWinningMark = ''
   // Check every path
-  for (let i = 0; i < 8; i++) {
-    switch (this.arrAllPaths[i].Full) {
+  for (let j = 0; j < 8; j++) {
+    // Search for one or more winning paths
+    // .Full returns false if a path is not full;
+    //   otherwise returns the mark that won
+    switch (this._arrAllPaths[j].Full) {
       case 'X': {   // x won
-        strWinningMark = 'X'
-        arrWinningPaths.push(this.arrAllPaths[i].arrPathIndices)
+        _strWinningMark = 'X'
+        _arrWinningPaths.push(this._arrAllPaths[j].arrPathIndices)
         break
       }
       case 'O': {   // y won
-        strWinningMark = 'O'
-        arrWinningPaths.push(this.arrAllPaths[i].arrPathIndices)
+        _strWinningMark = 'O'
+        _arrWinningPaths.push(this._arrAllPaths[j].arrPathIndices)
         break
       }
     }
   }
-  return {strWinningMark, arrWinningPaths}
+  if (_strWinningMark === '') {
+    this.isWin = false
+  } else {
+    this.isWin = {
+      mark: _strWinningMark,
+      paths: _arrWinningPaths
+    }
+  }
 }
 
 module.exports = AllPaths
