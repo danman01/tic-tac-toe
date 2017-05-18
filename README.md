@@ -106,9 +106,15 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   • Eventually dug deeper into the setAPIOrigin code to understand that I would
       receive the correct API address for use in API calls... and did not have to
       set up my own isProduction switch between dev and production environments.
-  • Used a separate file to hold descriptions of Player class & the Players array.
-      Placed this in an objects folder, as there will be other object/class
-      definitions.
+  • Used a separate file to hold descriptions of Player class & the Players
+      array. Placed this in an objects folder, as there will be other
+      object/class definitions.
+  • Got through to the display of game grid on successful log-in. Set aside
+      further work on the game logic.
+
+  3.8 Game logic
+  • Defined the game object.
+  • Attach delegated event handler to the parent of the grid to handle clicks.
 
 
 
