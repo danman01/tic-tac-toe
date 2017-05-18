@@ -2,8 +2,6 @@
 
 const authEvents = require('./auth/events')
 const config = require('./config')
-// const registerHTML = require('../html/register-html')
-// const signInHTML = require('../html/sign-in-html')
 const setAPIOrigin = require('../../lib/set-api-origin')
 
 // Wait for document to be ready
@@ -13,7 +11,7 @@ $(() => {
   // Load player1's log-in/registration forms into UI
   // Wait for the load to complete before continuing (synchronous, but
   // needed to be sure form is ready to fire event).
-  $('#player0').load('assets/html/sign-in-register.html', function () {
+  $('#player').load('assets/html/sign-in-register.html', function () {
     authEvents.addHandlers()
   })
 })
