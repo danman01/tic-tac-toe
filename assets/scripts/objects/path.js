@@ -5,14 +5,14 @@
 //   convenient methods to determine if game is over, nearly won, etc.
 // arrPathIndices is a 3-element array of indices from the linear game array;
 //  e.g., [0, 1, 2] for the top row, [0,5,9] for a diagonal.
-const Path = function (arrPathIndices) {
+const Path = function (arrPathIndices, arrSquareStates) {
   // _strState = string of placed marks.
   // empty at start of game
   // 'xxx' indicates a win by 'x'
   // 'xo' indicates a mark by each player and an empty spot
   // 'xx' indicates 2 x's in the path and an empty spot
   // No marks at instantiation
-  this._strState = ''
+  this._strState = this._updatePath(arrSquareStates)
 
   // Init the coördinates
   // Consider validation & error recovery
@@ -56,15 +56,13 @@ Path.prototype.Full = function () {
 
 // updatePath method
 // • updates the Path's properties from the supplied array of square states
-// • returns an array containing resulting values for TwoEqual and Full.
-Path.prototype.updatePath = function (arrSquareStates) {
-  this._strState = ''
+Path.prototype._updatePath = function (arrSquareStates) {
+  let strState = ''
   // Update the state of the path. Assumes valid inputs!
   for (let i = 0; i < 3; i++) {
-    this._strState += arrSquareStates[this.arrPathIndices[i]]
+    strState += arrSquareStates[this.arrPathIndices[i]]
   }
-
-  return [this.TwoEqual(), this.Full()]
+  return strState
 }
 
 module.exports = Path

@@ -8,17 +8,17 @@ const Path = require('./path')
 // 2 diagonals
 
 // Define allPaths constructor
-const AllPaths = function () {
+const AllPaths = function (arrSquareStates) {
   this._arrAllPaths = [
-    // array of all paths
-    new Path(0, 1, 2),  // rows
-    new Path(3, 4, 5),
-    new Path(6, 7, 8),
-    new Path(0, 3, 6),  // columns
-    new Path(1, 4, 7),
-    new Path(2, 5, 8),
-    new Path(0, 4, 8),  // diagonals
-    new Path(2, 4, 6)
+    // create array of all paths & set their state according to current game state
+    new Path([0, 1, 2], arrSquareStates),  // rows
+    new Path([3, 4, 5], arrSquareStates),
+    new Path([6, 7, 8], arrSquareStates),
+    new Path([0, 3, 6], arrSquareStates),  // columns
+    new Path([1, 4, 7], arrSquareStates),
+    new Path([2, 5, 8], arrSquareStates),
+    new Path([0, 4, 8], arrSquareStates),  // diagonals
+    new Path([2, 4, 6], arrSquareStates)
   ]
 }
 
@@ -52,13 +52,13 @@ AllPaths.prototype.isWin = function () {
   // Check every path
   for (let i = 0; i < 8; i++) {
     switch (this.arrAllPaths[i].Full) {
-      case 'x': {   // x won
-        strWinningMark = 'x'
+      case 'X': {   // x won
+        strWinningMark = 'X'
         arrWinningPaths.push(this.arrAllPaths[i].arrPathIndices)
         break
       }
-      case 'o': {   // y won
-        strWinningMark = 'y'
+      case 'O': {   // y won
+        strWinningMark = 'O'
         arrWinningPaths.push(this.arrAllPaths[i].arrPathIndices)
         break
       }
