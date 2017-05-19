@@ -35,7 +35,7 @@ const signIn = function (objSignIn) {
   //   }
   // }
 
-  // Cache credentials for log-in after successful registration
+  // Cache credentials for re-authentication on password change
   objPlayer.fnIsLoggedIn(
     null, objSignIn.credentials.email, objSignIn.credentials.password)
 
