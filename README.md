@@ -130,9 +130,72 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   • Refactored Player to allow a objPlayer to be neither logged in or out, in
     order to cache a proffered name/password for later reuse (e.g., to log-in
     after registration).
+  • Bug fixes needed.
 
 
 
 
 4. Unsolved problems for future releases
-  Fill in from my Wunderlist open issues later.
+  This list is maintained in Wunderlist & imported here.
+  Items marked "0" are for v1 minimum compliant release.
+  Items marked "1" are for improved UI/UX or better features.
+
+  ❏ 0 refactor methods in player for clarity; find & adjust callers.
+  ❏ 0 registered user does not get automatically logged in
+  ❏ 0 game logic: last move wins but shows draw.
+  ❏ 0 handle log-in failure
+  ❏ 0 add bad user input handling to password, name fields in login/registration
+      (code re-use)
+  ❏ 0 game.js: add server updates
+  ❏ 0. add log-out and password change buttons
+  ❏ 0. hook up registration form
+  ❏ 0. ReadMe must link to hosted game in URL section of my GitHub repo.
+  ❏ 0. ReadMe: link to user stories.
+  ❏ 0. ReadMe: list unsolved problems which would be fixed in future versions.
+  ❏ 0. sign-in: handle bad returns. Notes on tested returns follow:
+        Bad password generates .statusText "Unauthorized".
+        Bad username generates same .statusText.
+
+  ❏ 1 game.js: highlight winning paths (easy add-on)
+  ❏ 1 game.js: modify player message if he is doomed ... or could win.
+  ❏ 1 if a password change is requested before 1st game ends, use cached password
+  ❏ 1 improve draw detector see examples
+        x o x - x - o x o with O to move is already a draw, regardless of o's move.
+        We don't detect this. Will need some look-ahead logic to do this.
+
+  ❏ 1 timeout user's log-in after inactivity
+  ❏ 1 UX: composition: CSS border radius applied to input fields, some margin
+        all around
+  ❏ 1: response design breakpoint mixins must be @import-ed last in the
+        constructed CSS file. [details]
+  	     ❏ Test to see if these breakpoint mixins can be defined in
+         composition.scss, where they logically belong.
+
+  ❏ 1: UX: all buttons same size, white background
+  ❏ 1. Can player1 and player2 sub-classes be selected without prolifering IDs
+        by selecting a combination of ID & class?
+  ❏ 1. composition rules [checklist]
+  	✔ tic tac toe title
+  	✔ name block
+  	✔ player actions block
+  	✔ game announcements
+  	❏ buttons
+  	❏ add responsive design for narrow displays
+  	❏ can Composition be simplified by consolidating hierarchies in the
+      instructions?
+
+  ❏ 1. cross-browser testing
+  ❏ 1. define typography rules [checklist]
+  	❏ Tic tac toe header
+  	❏ name blocks
+  	❏ player action text
+  	❏ announcements
+  	❏ x & o
+  	❏ . typography: better font than helvetica
+  	❏ 1. h1: define text size
+  	❏ make type size scale responsively.
+
+  ❏ 1. multi-player log-in changes checklist
+  	❏ object/player.js: create 2 players as an array.
+  	❏ auth/ui.js: signInSuccess for 2-player array.
+  	❏ index.html: make space for 2nd player ident & controls.
