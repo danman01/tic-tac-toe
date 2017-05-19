@@ -11,9 +11,14 @@ const onNewGame = function () {
 
 // Click on the grid
 const onGridClick = function (e) {
-  // Try to add marker to grid
-  // By design of grid HTML, e.target.id is the index
-  objGame.addMove(e.target.id)
+  // Process the click in the game grid.
+  // Returns true if game is over.
+  if (objGame.addMove(e.target.id)) {
+    // Remove grid's event handler
+    $('#grid').off('click')
+    // Store the game at the server.
+    // Play another?
+  }
 }
 
 module.exports = {

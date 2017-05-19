@@ -113,8 +113,13 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
       further work on the game logic.
 
   3.8 Game logic
-  • Defined the game object.
+  • Defined the Game object, Path, and AllPaths.
   • Attach delegated event handler to the parent of the grid to handle clicks.
+    Added all the game logic processing.
+
+  3.9 After game logice
+  • At end of game, remove the grid's click handler. Insert a button "play again?".
+
 
 
 

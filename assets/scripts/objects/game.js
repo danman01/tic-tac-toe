@@ -12,20 +12,18 @@ const Game = function () {
 
 // AddMove attempts to add the next move at the specified
 // grid square.
-// Returns false if the grid square is occupied.
+// Returns false if game is not finished.
 // If grid square is free:
 // • updates the displayed game grid
 // • updates the announcements window
 // • updates the server after each move
-// • Returns null if game continues
-// • Returns true if game is over (draw or win)
+// Returns true if game is over (draw or win)
 Game.prototype.addMove = function (intSquareIndex) {
   // Can this square be marked?
   if (this._arrSquareStates[intSquareIndex] !== '') {
     // No. Ignore move & post advice
     $('.announcements').html('Sorry ' + this._strTurn +
       ', you cannnot change an occupied square. Click an empty square .')
-    // Return false
     return false
   }
 
@@ -67,7 +65,7 @@ Game.prototype.addMove = function (intSquareIndex) {
   // ... and does he have to be careful?
   // ... or is he doomed?
   // Return null
-  return null
+  return false
 }
 
 module.exports = Game
