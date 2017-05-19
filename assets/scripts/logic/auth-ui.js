@@ -25,12 +25,8 @@ const signInSuccess = function (objResponse) {
     $('.player-name').html(objPlayer.name + ' logged in.')
   })
 
-  $('#grid').load('assets/html/game-grid.html', function () {
-    // When grid has loaded add delegated event handler to grid.
-    $('#grid').on('click', objGameEvents.onGridClick)
-    // Instantiate a new game, which tells players to start.
-    objGameEvents.onNewGame()
-  })
+  // Load & start new game
+  objGameEvents.onNewGame()
 }
 
 const signInFailure = function (objResponse) {

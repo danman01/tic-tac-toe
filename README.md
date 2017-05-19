@@ -117,8 +117,9 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   • Attach delegated event handler to the parent of the grid to handle clicks.
     Added all the game logic processing.
 
-  3.9 After game logice
+  3.9 After game logic
   • At end of game, remove the grid's click handler. Insert a button "play again?".
+    When clicked, start a new game.
 
 
 
