@@ -7,7 +7,11 @@ Contents:
 4. Unsolved problems for future releases
 
 1. Links:
-• wireframes: to be provided.
+• wireframes: in GitHub here:
+  https://github.com/EricLScace/tic-tac-toe/blob/master/ui%20ux/TTT%20wireframe%20auth%20v1-0.jpg
+
+  https://github.com/EricLScace/tic-tac-toe/blob/master/ui%20ux/TTT%20wireframe%20v1-0.jpg
+
 • user stories: to be provided.
 
 2. Technologies used
