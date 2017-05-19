@@ -121,6 +121,16 @@ These ranged from the very detailed (fix a detailed item in code) to the high-le
   • At end of game, remove the grid's click handler. Insert a button "play again?".
     When clicked, start a new game.
 
+  3.10 Bug fix to title display. Had to delay loading the title text until
+    after document rendered.
+
+  3.11 User registration
+  • Added user registration handlers to existing form.
+  • Refactored game UI event handlers into their intended file for clarity.
+  • Refactored Player to allow a objPlayer to be neither logged in or out, in
+    order to cache a proffered name/password for later reuse (e.g., to log-in
+    after registration).
+
 
 
 

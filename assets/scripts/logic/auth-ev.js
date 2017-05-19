@@ -4,28 +4,27 @@ const api = require('./auth-api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./auth-ui')
 
-// // event.target must be an HTML form
-// const onSignUp = function (event) {
-//   // prefer coding 'event.target' rather than 'this'
-//   // ALWAYS preventDefault first!
-//   event.preventDefault()
-//
-//   const objSignUp = getFormFields(event.target)
-//   console.log('Event onSignUp invoked with data:', objSignUp)
-//
-//   // use AJAX to initiate HTTP request, defined in api module, for sign-up
-//   api.signUp(objSignUp)
-//     // Promise .then waits for the async operation
-//     // Mandatory to avoid race conditions introduced by network delays
-//     .then(ui.signUpSuccess)
-//     // subsequent .then will pass the return from the previous .then as the
-//     // first argument to the callback function.
-//     .catch(ui.signUpFailure)
-// }
-//
-const onSignIn = function (event) {
-  event.preventDefault()
-  const objSignIn = getFormFields(event.target)
+// event.target must be an HTML form
+const onSignUp = function (e) {
+  // prefer coding 'event.target' rather than 'this'
+  // ALWAYS preventDefault first!
+  e.preventDefault()
+
+  const objSignUp = getFormFields(e.target)
+
+  // use AJAX to initiate HTTP request, defined in api module, for sign-up
+  api.signUp(objSignUp)
+    // Promise .then waits for the async operation
+    // Mandatory to avoid race conditions introduced by network delays
+    .then(ui.signUpSuccess)
+    // subsequent .then will pass the return from the previous .then as the
+    // first argument to the callback function.
+    .catch(ui.signUpFailure)
+}
+
+const onSignIn = function (e) {
+  e.preventDefault()
+  const objSignIn = getFormFields(e.target)
   api.signIn(objSignIn)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -57,7 +56,7 @@ const addHandlers = () => {
   // $('#change-password').on('submit', onChangePassword)
   $('#sign-in').on('submit', onSignIn)
   // $('#sign-out').on('submit', onSignOut)
-  // $('#sign-up').on('submit', onSignUp)
+  $('#sign-up').on('submit', onSignUp)
 }
 
 module.exports = {

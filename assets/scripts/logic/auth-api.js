@@ -1,27 +1,30 @@
 'use strict'
 
 const config = require('../config')
+const objPlayer = require('../objects/player')
 
 // Invokes sign-up API
-// const signUp = function (objSignUp) {
-//   // per API documentation, objSignUp must be of form:
-//   // {
-//   //   credentials: {
-//   //     email: "string",
-//   //     password: "string",
-//   //     password_confirmation: "string"
-//   //   }
-//   // }
-//   console.log('api.signUp invoked with ', objSignUp)
-//   return $.ajax({
-//     // local test back end version
-//     url: 'http://localhost:4741/sign-up',
-//     // production version
-//     // url: '$(config.apiOrigin}/sign-up/',
-//     method: 'POST',
-//     data: objSignUp
-//   })
-// }
+const signUp = function (objSignUp) {
+  // per API documentation, objSignUp must be of form:
+  // {
+  //   credentials: {
+  //     email: "string",
+  //     password: "string",
+  //     password_confirmation: "string"
+  //   }
+  // }
+
+  // Cache credentials for log-in after successful registration
+  objPlayer.fnIsLoggedIn(
+    null, objSignUp.credentials.email, objSignUp.credentials.password)
+
+  // Attempt to register
+  return $.ajax({
+    url: config.apiOrigin + '/sign-up',
+    method: 'POST',
+    data: objSignUp
+  })
+}
 
 const signIn = function (objSignIn) {
   // per API documentation, objSignIn must be of form:
@@ -31,6 +34,11 @@ const signIn = function (objSignIn) {
   //     password: "string"
   //   }
   // }
+
+  // Cache credentials for log-in after successful registration
+  objPlayer.fnIsLoggedIn(
+    null, objSignIn.credentials.email, objSignIn.credentials.password)
+
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
@@ -65,9 +73,9 @@ const signIn = function (objSignIn) {
 
 module.exports = {
   // changePassword,
-  signIn
+  signIn,
   // signOut,
-  // signUp
+  signUp
 }
 
 // Can be used to debug random error handling

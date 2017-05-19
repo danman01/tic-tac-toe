@@ -44,25 +44,30 @@ const signInFailure = function (objResponse) {
 //   console.log('Log out failure. Return:', objResponse)
 //   // Usually this is a token value problem.
 // }
-//
-// const signUpSuccess = function (objResponse) {
-//   // API returns an object of form
-//   // {
-//   //   user: {
-//   //     email: "string",
-//   //     id: int
-//   //   }
-//   // }
-//   console.log('Sign up success. Return:', objResponse)
-// }
-//
-// const signUpFailure = function (objResponse) {
-//   // API returns an JSON containing one useful key-value pair:
-//   // responseText: {
-//   //   "email":["has already been taken"]
-//   // }
-//   console.log('Sign up failure. Return:', objResponse)
-// }
+
+const signUpSuccess = function (objResponse) {
+  // API returns an object of form
+  // {
+  //   user: {
+  //     email: "string",
+  //     id: int
+  //   }
+  // }
+
+  // Post welcome announcement.
+  $('.announcements').html('Welcome, ' + objResponse.user.email)
+
+  // Log in user with cached credentials
+
+}
+
+const signUpFailure = function (objResponse) {
+  // API returns an JSON containing one useful key-value pair:
+  // responseText: {
+  //   "email":["has already been taken"]
+  // }
+  console.log('Sign up failure. Return:', objResponse)
+}
 //
 // const changePasswordSuccess = function (objResponse) {
 //   console.log('Change password success. Return:', objResponse)
@@ -78,9 +83,9 @@ module.exports = {
   // changePasswordSuccess,
   // changePasswordFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
   // signOutSuccess,
   // signOutFailure,
-  // signUpSuccess,
-  // signUpFailure
+  signUpSuccess,
+  signUpFailure
 }
