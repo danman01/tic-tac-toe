@@ -8,6 +8,9 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 $(() => {
   setAPIOrigin(location, config)
 
+  // Insert Tic-tac-toe heading
+  $('.game-title').html('<h1>Tic Tac Toe</h1>')
+
   // Load player1's log-in/registration forms into UI
   // Wait for the load to complete before continuing (synchronous, but
   // needed to be sure form is ready to fire event).
